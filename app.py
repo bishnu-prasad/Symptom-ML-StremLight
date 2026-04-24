@@ -4,7 +4,7 @@ import numpy as np
 import pickle
 
 # --- PAGE CONFIGURATION ---
-st.set_page_config(page_title="Medical Diagnostic AI", page_icon="🩺", layout="centered")
+st.set_page_config(page_title="Medical Diagnostic AI", page_icon="", layout="centered")
 
 # --- LOAD ML PIPELINE (Cached for speed) ---
 # @st.cache_resource ensures the model only loads once when the server starts
@@ -26,11 +26,11 @@ try:
     model, scaler, encoder, features = load_pipeline()
     pipeline_loaded = True
 except FileNotFoundError:
-    st.error("🚨 Error: Could not find the .pkl files. Please ensure they are in the same folder as this script.")
+    st.error(" Error: Could not find the .pkl files. Please ensure they are in the same folder as this script.")
     pipeline_loaded = False
 
 # --- FRONTEND UI ---
-st.title("🩺 Medical AI Diagnostic Assistant")
+st.title(" Medical AI Diagnostic Assistant")
 st.write("Select the patient's presenting symptoms below to generate a differential diagnosis based on our trained Logistic Regression model.")
 
 if pipeline_loaded:
